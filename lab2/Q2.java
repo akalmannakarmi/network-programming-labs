@@ -4,13 +4,11 @@ import java.net.*;
 public class Q2 {
     public static void main(String[] args) {
         try {
-            // Get local machine's IPv6 address
             InetAddress localHost = InetAddress.getLocalHost();
             System.out.println("Local Machine Hostname: " + localHost.getHostName());
             System.out.println("Local Machine IPv6 Address: " + getIPv6Address(localHost));
 
-            // Resolve a hostname to its IPv6 address
-            String hostname = "www.google.com"; // Change this to any hostname you want to resolve
+            String hostname = "www.google.com";
             InetAddress[] addresses = InetAddress.getAllByName(hostname);
             
             System.out.println("\nHostname: " + hostname);
@@ -26,7 +24,6 @@ public class Q2 {
         }
     }
 
-    // Helper method to filter out only IPv6 addresses
     private static String getIPv6Address(InetAddress inetAddress) {
         if (inetAddress.getHostAddress().contains(":")) {
             return inetAddress.getHostAddress();

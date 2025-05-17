@@ -4,13 +4,12 @@ import java.net.*;
 public class Q2 {
     public static void main(String[] args) {
         try {
-            // ===== TCP Socket (Client) Example =====
             Socket tcpSocket = new Socket();
             tcpSocket.setReuseAddress(true);
-            tcpSocket.setSoTimeout(5000); // 5 seconds
+            tcpSocket.setSoTimeout(5000);
             tcpSocket.setReceiveBufferSize(8192);
             tcpSocket.setSendBufferSize(8192);
-            tcpSocket.setTrafficClass(0x10); // IP_TOS (low delay)
+            tcpSocket.setTrafficClass(0x10);
 
             System.out.println("=== TCP Socket Options ===");
             System.out.println("SO_TIMEOUT      : " + tcpSocket.getSoTimeout());
@@ -21,15 +20,13 @@ public class Q2 {
 
             tcpSocket.close();
 
-            // ===== UDP Socket (DatagramSocket) Example =====
             DatagramSocket udpSocket = new DatagramSocket(null);
             udpSocket.setReuseAddress(true);
             udpSocket.setBroadcast(true);
-            udpSocket.setSoTimeout(3000); // 3 seconds
+            udpSocket.setSoTimeout(3000);
             udpSocket.setReceiveBufferSize(4096);
             udpSocket.setSendBufferSize(4096);
 
-            // Binding to a port
             udpSocket.bind(new InetSocketAddress(9876));
 
             System.out.println("\n=== UDP Socket Options ===");

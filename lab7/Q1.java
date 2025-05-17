@@ -15,21 +15,18 @@ public class Q1 {
         int port = 13306;
 
         try (Socket socket = new Socket(serverAddress, port)) {
-            // Set socket options
-            socket.setSoTimeout(5000); // 5 seconds
+            socket.setSoTimeout(5000);
             socket.setTcpNoDelay(true);
             socket.setReceiveBufferSize(8192);
             socket.setSendBufferSize(8192);
             socket.setKeepAlive(true);
 
-            // Print socket settings
             System.out.println("Connected to " + serverAddress + ":" + port);
             System.out.println("SoTimeout: " + socket.getSoTimeout());
             System.out.println("TCP NoDelay: " + socket.getTcpNoDelay());
             System.out.println("Receive Buffer Size: " + socket.getReceiveBufferSize());
             System.out.println("Send Buffer Size: " + socket.getSendBufferSize());
             System.out.println("KeepAlive: " + socket.getKeepAlive());
-
         } catch (IOException e) {
             System.err.println("Error connecting to server: " + e.getMessage());
         }

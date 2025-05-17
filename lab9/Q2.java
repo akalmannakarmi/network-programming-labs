@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Q2 {
     public static void main(String[] args) {
-        String filePath = "testout.txt"; // Make sure this file exists in the project directory or provide full path
+        String filePath = "testout.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;

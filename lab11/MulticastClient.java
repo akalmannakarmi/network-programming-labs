@@ -1,7 +1,5 @@
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
-import java.net.MulticastSocket;
+import java.net.*;
 
 public class MulticastClient {
     public static void main(String[] args) {
@@ -10,7 +8,8 @@ public class MulticastClient {
 
         try (MulticastSocket socket = new MulticastSocket(port)) {
             InetAddress group = InetAddress.getByName(multicastAddress);
-            socket.joinGroup(group);
+            NetworkInterface networkInterface = NetworkInterface.getByInetAddress(InetAddress.getLocalHost());
+            socket.joinGroup(new InetSocketAddress(group, port), networkInterface);
 
             System.out.println("Joined multicast group. Waiting for messages...");
 

@@ -8,10 +8,8 @@ public class Q1 {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server is listening on port " + port);
 
-            // Wait for a client to connect
             Socket clientSocket = serverSocket.accept();
 
-            // Get client socket information
             InetAddress clientAddress = clientSocket.getInetAddress();
             int clientPort = clientSocket.getPort();
 
@@ -20,9 +18,7 @@ public class Q1 {
             System.out.println("Client Hostname: " + clientAddress.getHostName());
             System.out.println("Client Port: " + clientPort);
 
-            // Close the client connection
             clientSocket.close();
-
         } catch (IOException e) {
             System.out.println("Server exception: " + e.getMessage());
             e.printStackTrace();

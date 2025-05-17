@@ -9,12 +9,10 @@ public class ChatClient {
         try (Socket socket = new Socket(hostname, port)) {
             System.out.println("Connected to server.");
 
-            // Streams for communication
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
-            // Thread to read from server
             Thread reader = new Thread(() -> {
                 String message;
                 try {
@@ -28,7 +26,6 @@ public class ChatClient {
 
             reader.start();
 
-            // Sending messages to server
             String clientMessage;
             while ((clientMessage = console.readLine()) != null) {
                 output.println(clientMessage);

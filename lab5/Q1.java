@@ -4,19 +4,17 @@ public class Q1 {
     public static void main(String[] args) {
         Server proxy = new ProxyServer();
 
-        proxy.connect("192.168.0.5");   // Allowed
-        proxy.connect("192.168.0.10");  // Banned
-        proxy.connect("10.0.0.1");      // Allowed
-        proxy.connect("10.0.0.99");     // Banned
+        proxy.connect("192.168.0.5");
+        proxy.connect("192.168.0.10");
+        proxy.connect("10.0.0.1");
+        proxy.connect("10.0.0.99");
     }
 }
 
-// Subject Interface
 interface Server {
     void connect(String ipAddress);
 }
 
-// Real Subject
 class RealServer implements Server {
     @Override
     public void connect(String ipAddress) {
@@ -24,7 +22,6 @@ class RealServer implements Server {
     }
 }
 
-// Proxy
 class ProxyServer implements Server {
     private RealServer realServer = new RealServer();
     private static final String[] bannedIPs = {"192.168.0.10", "10.0.0.99"};

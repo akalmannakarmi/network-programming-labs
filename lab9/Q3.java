@@ -2,7 +2,6 @@ import java.io.*;
 
 public class Q3 {
     public static void main(String[] args) {
-        // Array of input file names
         String[] inputFiles = {"input1.txt", "input2.txt", "input3.txt", "input4.txt"};
         String outputFile = "combinedout.txt";
 
@@ -12,9 +11,9 @@ public class Q3 {
                     String line;
                     while ((line = reader.readLine()) != null) {
                         writer.write(line);
-                        writer.newLine();  // Preserve line breaks
+                        writer.newLine();
                     }
-                    writer.newLine(); // Add a blank line between file contents
+                    writer.newLine();
                 } catch (FileNotFoundException e) {
                     System.out.println("File not found: " + inputFile);
                 }

@@ -6,7 +6,6 @@ import java.util.Enumeration;
 public class Q2 {
     public static void main(String[] args) {
         try {
-            // Get all network interfaces on the system
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
 
             while (interfaces.hasMoreElements()) {
@@ -16,7 +15,6 @@ public class Q2 {
                 System.out.println("Interface Name: " + networkInterface.getName());
                 System.out.println("Display Name: " + networkInterface.getDisplayName());
 
-                // Get and display MAC (hardware) address
                 byte[] mac = networkInterface.getHardwareAddress();
                 if (mac != null) {
                     System.out.print("MAC Address: ");
@@ -28,14 +26,12 @@ public class Q2 {
                     System.out.println("MAC Address: Not available");
                 }
 
-                // Display network properties
                 System.out.println("MTU: " + networkInterface.getMTU());
                 System.out.println("Is Up: " + networkInterface.isUp());
                 System.out.println("Is Loopback: " + networkInterface.isLoopback());
                 System.out.println("Is Virtual: " + networkInterface.isVirtual());
                 System.out.println("Supports Multicast: " + networkInterface.supportsMulticast());
 
-                // Get assigned IP addresses (IPv4 & IPv6)
                 Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
                 while (addresses.hasMoreElements()) {
                     InetAddress address = addresses.nextElement();

@@ -5,12 +5,10 @@ import java.net.*;
 public class Q1 {
     public static void main(String[] args) {
         try {
-            // Define the URL
             String urlString = "http://example.com/index.html?name=test#section1";
             URI uri = new URI(urlString);
             URL url = uri.toURL();
 
-            // Extract and print URL components
             System.out.println("Protocol: " + url.getProtocol());
             System.out.println("Host: " + url.getHost());
             System.out.println("Path: " + url.getPath());

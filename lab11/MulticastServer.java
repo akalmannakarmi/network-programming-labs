@@ -5,8 +5,8 @@ import java.net.MulticastSocket;
 
 public class MulticastServer {
     public static void main(String[] args) {
-        String multicastAddress = "230.0.0.0"; // Multicast group address
-        int port = 4446; // Port to send data to
+        String multicastAddress = "230.0.0.0";
+        int port = 4446;
 
         try (MulticastSocket socket = new MulticastSocket()) {
             InetAddress group = InetAddress.getByName(multicastAddress);
@@ -19,9 +19,8 @@ public class MulticastServer {
                 socket.send(packet);
 
                 System.out.println("Sent: " + message);
-                Thread.sleep(2000); // Delay between messages
+                Thread.sleep(2000);
             }
-
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

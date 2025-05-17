@@ -12,20 +12,17 @@ public class Q3Server {
 
             ByteBuffer buffer = ByteBuffer.allocate(1024);
 
-            // Receive data
             SocketAddress clientAddress = serverChannel.receive(buffer);
             buffer.flip();
             String received = new String(buffer.array(), 0, buffer.limit());
             System.out.println("Received from client: " + received);
 
-            // Send response
             buffer.clear();
             String response = "Hello, UDP Client";
             buffer.put(response.getBytes());
             buffer.flip();
             serverChannel.send(buffer, clientAddress);
             System.out.println("Response sent to client.");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

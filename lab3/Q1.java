@@ -5,7 +5,6 @@ import java.util.Enumeration;
 public class Q1 {
     public static void main(String[] args) {
         try {
-            // Get all network interfaces
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
 
             while (interfaces.hasMoreElements()) {
@@ -13,7 +12,6 @@ public class Q1 {
                 System.out.println("Interface Name: " + networkInterface.getName());
                 System.out.println("Display Name: " + networkInterface.getDisplayName());
 
-                // Get IP addresses assigned to this interface
                 Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
                 while (addresses.hasMoreElements()) {
                     InetAddress address = addresses.nextElement();

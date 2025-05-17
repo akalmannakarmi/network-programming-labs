@@ -8,15 +8,13 @@ public class Q3Client {
         String message = "Hello, UDP Server";
 
         try (DatagramChannel clientChannel = DatagramChannel.open()) {
-            clientChannel.bind(null); // Use any available port
+            clientChannel.bind(null);
 
-            // Send message to server
             ByteBuffer buffer = ByteBuffer.wrap(message.getBytes());
             InetSocketAddress serverAddress = new InetSocketAddress("localhost", port);
             clientChannel.send(buffer, serverAddress);
             System.out.println("Message sent to server: " + message);
 
-            // Prepare to receive response
             buffer.clear();
             clientChannel.receive(buffer);
             buffer.flip();

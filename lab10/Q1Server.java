@@ -8,14 +8,12 @@ public class Q1Server {
         try (DatagramSocket serverSocket = new DatagramSocket(port)) {
             System.out.println("UDP Server is listening on port " + port);
 
-            // Receive packet
             DatagramPacket receivePacket = new DatagramPacket(receiveBuffer, receiveBuffer.length);
             serverSocket.receive(receivePacket);
 
             String clientMessage = new String(receivePacket.getData(), 0, receivePacket.getLength());
             System.out.println("Received from client: " + clientMessage);
 
-            // Prepare response
             String response = "Hello, UDP Client";
             byte[] sendBuffer = response.getBytes();
 

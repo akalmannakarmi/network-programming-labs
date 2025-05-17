@@ -10,12 +10,10 @@ public class Q1Client {
             InetAddress serverAddress = InetAddress.getByName("localhost");
             int serverPort = 9876;
 
-            // Send packet to server
             DatagramPacket sendPacket = new DatagramPacket(sendBuffer, sendBuffer.length, serverAddress, serverPort);
             clientSocket.send(sendPacket);
             System.out.println("Message sent to server: " + serverMessage);
 
-            // Receive response from server
             DatagramPacket receivePacket = new DatagramPacket(receiveBuffer, receiveBuffer.length);
             clientSocket.receive(receivePacket);
 
